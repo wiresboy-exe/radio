@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <link rel="icon" type="image/png" href="site-logo.png"/>
@@ -13,7 +14,7 @@
     
     <style>
       body {
-        background-image: url('ivyradio.png');
+        background-image: url('Background.png');
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
@@ -29,6 +30,14 @@
         font-size: 16px;
         margin: 4px 2px;
       }
+      
+      
+      .center {
+        margin: auto;
+        width: 60%;
+        padding: 10px;
+      }
+      
       /* Full-width inputs */
       input[type=text], input[type=password] {
         width: 100%;
@@ -96,14 +105,14 @@
       .button5 {border-radius: 50%;}
 
       .div1 {position: fixed; left:27%}
-      .div2 {position: fixed; left: 35%; top: 75%; background-color: antiquewhite; width: 30%; height: 15%; border-radius: 12px; text-align: center;}
+      .div2 {position: fixed; left: 35%; top: 75%; background-color: white; width: 30%; height: 15%; border-radius: 12px; text-align: center;}
 
       .grid-container {display: grid; grid-column-gap: 50px; grid-row-gap: 50px;}
       .grid-item{grid-row-start: 1; grid-row-end: 1;}
     </style>
-    <div class="div1">
+    <div class="center" >
       <button class="button button4">Admin Login</button>
-      <button class="button button4">Join The Discord</button>
+      <button class="button button4" onclick="window.open('https://discord.gg/cbwg5Kj','_blank')";>Join The Discord</button>
       <button class="button button4">Donate</button>
       <form action="validate.html" method="get">
     
