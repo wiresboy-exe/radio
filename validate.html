@@ -1,4 +1,8 @@
 <script>
+    function generatekey(user){
+        document.cookie = "loggedin=" + user
+    }
+
     function getUrlParam(parameter, defaultValue) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(parameter) || defaultValue;
@@ -13,10 +17,12 @@
             window.location.href=("index.html")
         }else{
             document.write("incorrect password")
+            generatekey(username)
         }
     }else if(username === "dacousb"){
         if(password === "Hg&$hE$JR%7d$hy$y"){
             window.location.href("index.html")
+            generatekey(username)
         }else{
             document.write("incorrect password")
         }
