@@ -6,53 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel = "stylesheet" type = "text/css" href = "styles.css" />
   </head>
-  <body>
-    <script>
-      window.onload = function(){
-        var song = "None"
-        document.getElementById("song").innerHTML = "<b>" + song + "</b>";
-      };
-
-      var playpause = "⏹️"
-
-     // https://developers.google.com/youtube/iframe_api_reference
-
-     // global variable for the player
-    var player;
-
-    // this function gets called when API is ready to use
-    function onYouTubePlayerAPIReady() {
-      // create the global player from the specific iframe (#video)
-      player = new YT.Player('video', {
-      events: {
-        // call this function when player is ready to use
-        'onReady': onPlayerReady
-      }
-    });
-    }
-
-    function onPlayerReady(event) {
-  
-      // bind events
-      var playButton = document.getElementById("play-button");
-      playButton.addEventListener("click", function() {
-        player.playVideo();
-      });
-  
-      var pauseButton = document.getElementById("pause-button");
-      pauseButton.addEventListener("click", function() {
-        player.pauseVideo();
-      });
-    }
-
-    // Inject YouTube API script
-    var tag = document.createElement('script');
-    tag.src = "//www.youtube.com/player_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
-    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    </script>
-    
-    <style>
+  <style>
       body {
         background-image: url('Background.png');
         background-repeat: no-repeat;
@@ -119,8 +73,54 @@
 
       .grid-container {display: grid; grid-column-gap: 50px; grid-row-gap: 50px;}
       .grid-item{grid-row-start: 1; grid-row-end: 1;}
-    </style>
+    </style>	
+
   <body>
+    <script>
+      window.onload = function(){
+        var song = "None"
+        document.getElementById("song").innerHTML = "<b>" + song + "</b>";
+      };
+
+      var playpause = "⏹️"
+
+     // https://developers.google.com/youtube/iframe_api_reference
+
+     // global variable for the player
+    var player;
+
+    // this function gets called when API is ready to use
+    function onYouTubePlayerAPIReady() {
+      // create the global player from the specific iframe (#video)
+      player = new YT.Player('video', {
+      events: {
+        // call this function when player is ready to use
+        'onReady': onPlayerReady
+      }
+    });
+    }
+
+    function onPlayerReady(event) {
+  
+      // bind events
+      var playButton = document.getElementById("play-button");
+      playButton.addEventListener("click", function() {
+        player.playVideo();
+      });
+  
+      var pauseButton = document.getElementById("pause-button");
+      pauseButton.addEventListener("click", function() {
+        player.pauseVideo();
+      });
+    }
+
+    // Inject YouTube API script
+    var tag = document.createElement('script');
+    tag.src = "//www.youtube.com/player_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    </script>
+
     <iframe width="0" height="0" src="http://www.youtube.com/embed/-Mypt378fkc?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>
     <div class="center">
       <button class="button button4" onclick="window.location.href='admin.html'">Admin Login</button>
