@@ -11,6 +11,16 @@
         var song = "None"
         document.getElementById("song").innerHTML = "<b>" + song + "</b>";
       };
+
+      var playpause = "⏹️"
+
+      function playpauseset(){
+        if(playpause === "⏹️"){
+          document.getElementById(play-button).innerText = "1";
+        }else{
+          document.getElementById(play-button).innerText = "2";
+        }
+      }
     </script>
     
     <style>
@@ -55,7 +65,7 @@
     </div>
     <div class = "div2">
     <div class="grid-container">
-      <div class="grid-item"><button class="button button4" id="play-button" style="font-size: 200%; top: 50%;">▶️</button></div>
+      <div class="grid-item"><button class="button button4"; onclick="playpauseset()"; id="play-button"; style="font-size: 200%; top: 50%;"></button></div>
       <div class="grid-item"><p style="font-size: 120%; font-family: 'Times New Roman', Times, serif;"><b>Currently playing: </b></p><p style="font-size: 150%; font-family: 'Times New Roman', Times, serif;" id="song"></p></div>
     </div>
     </div>
