@@ -1,6 +1,6 @@
 <script>
     function generatekey(user){
-        document.cookie = "loggedin=" + user
+        document.cookie = "loggedin=" + user + "; path=/"
     }
 
     function getUrlParam(parameter, defaultValue) {
