@@ -1,11 +1,12 @@
-@media only screen and (device-width: 1280px),
-only screen and (max-width:1280px) {
-.css-element {
-  
-  
-  
-css code here:;
-  
-  
+body {
+  padding-top: 8px;
+  padding-bottom: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
+  background-color: #DDDDDD;
+  font-family: arial;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1280px;
+  min-width: 256px;
 }
-   }
