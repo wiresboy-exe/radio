@@ -5,8 +5,39 @@
       <title>Musyc Radio</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel = "stylesheet" type = "text/css" href = "styles.css" />
+      <meta name="title" content="Musyc Radio - Online Live Radio">
+      <meta name="description" content="Musyc Radio is an online music radio - new songs every minute. Gaming music, relaxing music and electronic music.">
+      <meta name="keywords" content="music, radio, live, live radio, live music, songs, song, live songs">
+      <meta name="robots" content="index, follow">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="language" content="English">
    </head>
    <style>
+      .alert {
+      padding: 20px;
+      background-color: #0095DF;
+      color: white;
+      /*position: fixed;*/
+      margin: auto;
+      opacity:0.8;
+      /*bottom: 0;*/
+      top: 12%;
+      text-align: center;
+      border-radius: 12px;
+      }
+      .closebtn {
+      margin-left: 15px;
+      color: white;
+      font-weight: bold;
+      float: right;
+      font-size: 22px;
+      line-height: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+      }
+      .closebtn:hover {
+      color: black;
+      }
       body {
       background-image: url('Background.png');
       background-repeat: no-repeat;
@@ -33,6 +64,7 @@
       display: inline-block;
       font-size: 16px;
       margin: 4px 2px;
+      opacity:0.8;
       }
       .button100 {
       width: 48px;
@@ -61,7 +93,7 @@
       .button4 {border-radius: 12px;}
       .button5 {border-radius: 50%;}
       .div1 {position: fixed; left:37%}
-      .div2 {position: fixed; background-color: white; opacity:0.8; left: 33%; top: 75%; width: 35%; height: 40%; border-radius: 12px; text-align: center;}
+      .div2 {position: fixed; background-color: white; opacity:0.8; left: 33%; top: 75%; min-width: 200px; width: 35%; height: 40%; border-radius: 12px; text-align: center;}
       .grid-container {display: grid; grid-column-gap: 50px; grid-row-gap: 50px;}
       .grid-item{grid-row-start: 1; grid-row-end: 1;}
       #bars {
@@ -111,6 +143,10 @@
          var playpause = "⏹️"
       </script>
       <!--<iframe width="0" height="0" src="https://www.youtube.com/embed/-Mypt378fkc?rel=0&autoplay=1&enablejsapi=1&html5=1" frameborder="0" allowfullscreen></iframe>-->
+      <div class="alert">
+         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+         <strong>Info!</strong> If you don't hear music, try and press the ► button.
+      </div>
       <div class="center">
          <!--<button class="button button4" onclick="window.location.href='https://musyc.ga/admin'">Admin Login</button>-->
          <button class="button button4" onclick="window.open('https://discord.com/invite/cbwg5Kj','_blank')";>Join The Discord</button>
