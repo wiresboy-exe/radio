@@ -73,6 +73,11 @@
          };
          
          var playpause = "⏹️"
+         
+         var loc = window.location.href+'';
+         if (loc.indexOf('http://')==0){
+            window.location.href = loc.replace('http://','https://');
+         }
       </script>
       <iframe width="0" height="0" src="https://www.youtube.com/embed/-Mypt378fkc?rel=0&autoplay=1&enablejsapi=1&html5=1" frameborder="0" allowfullscreen></iframe>
       <div class="center">
