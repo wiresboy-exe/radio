@@ -151,9 +151,9 @@
          // 2. This code loads the IFrame Player API code asynchronously.
          var tag = document.createElement('script');
          
-         //tag.src = "https://www.youtube.com/iframe_api";
-         //var firstScriptTag = document.getElementsByTagName('script')[0];
-         //firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+         tag.src = "https://www.youtube.com/iframe_api";
+         var firstScriptTag = document.getElementsByTagName('script')[0];
+         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
          
          // 3. This function creates an <iframe> (and YouTube player)
          //    after the API code downloads.
@@ -209,7 +209,7 @@
          <strong>Info!</strong> <!--If you don't hear music, try and press the ► button--> We are having some trouble with the music, try "No Sound?" button (or Edge Browser for full compatibility).
       </div>
       <!--Start of Tawk.to Script-->
-      <!--Leave this please-->
+      <!--Leave this please
       <script type="text/javascript">
          var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
          (function(){
@@ -220,7 +220,7 @@
             s1.setAttribute('crossorigin','*');
             s0.parentNode.insertBefore(s1,s0);
          })();
-      </script>
+      </script>-->
       <!--End of Tawk.to Script-->
       <!--Leave this please-->
       <div class="center">
@@ -253,14 +253,14 @@
             </div>
             <iframe src="https://youtube.com/embed/w9axibp60IU?enablejsapi=1&html5=1"></iframe>
          </div>-->
-         <script type='text/javascript'>
+         <!--<script type='text/javascript'>
             var cstrFreePlayerUid = 527716;var cstrFreePlayerTheme = 'blue';var cstrFreePlayerColor = '';
          </script>
          <script type='text/javascript' src='//corscdn.caster.fm/freeplayer/FreePlanPlayerEmbed.js'></script>
          <!--   DO NOT REMOVE THE LINKS BELOW, THEY  WILL BE HIDDEN (AND WILL HELP US A LOT)   -->
-         <a id='cstrFreePlayerBL1' href='//www.caster.fm/'>Free Shoutcast Hosting</a><a id='cstrFreePlayerBL2' href='//www.caster.fm/'>Radio Stream Hosting</a>
+         <!--<a id='cstrFreePlayerBL1' href='//www.caster.fm/'>Free Shoutcast Hosting</a><a id='cstrFreePlayerBL2' href='//www.caster.fm/'>Radio Stream Hosting</a>
          <div id='cstrFreePlayerDiv'></div>
-         <!--Leave this please-->
+         Leave this please-->
       </div>
       <div id="bars">
          <div class="bar"></div>
