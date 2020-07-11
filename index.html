@@ -13,6 +13,27 @@
       <meta name="language" content="English">
    </head>
    <style>
+      .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: #0095DF;
+      color: white;
+      text-align: center;
+      opacity: 0.7;
+      }
+      .playpause{
+      float: left;
+      outline: none;
+      background-color: #0095DF;
+      color: white;
+      border: none;
+      font-size: 225%;
+      }
+      .playingnow{
+      float: right;
+      }
       .alert {
       padding: 20px;
       background-color: #0095DF;
@@ -65,6 +86,7 @@
       font-size: 16px;
       margin: 4px 2px;
       opacity:0.8;
+      border: none;
       }
       .button100 {
       width: 48px;
@@ -134,7 +156,7 @@
       <script>
          window.onload = function(){
            var song = "Gaming Music Live"
-           document.getElementById("song").innerHTML = "<b>" + song + "</b>";
+           document.getElementById("song").innerHTML = "<b>Playing: </b>" + song + "&nbsp;&nbsp;&nbsp;&nbsp;";
          };
          
          var playpause = "⏹️"
@@ -164,7 +186,7 @@
          // 4. The API will call this function when the video player is ready.
          function onPlayerReady(event) {
            event.target.playVideo();
-           event.target.setVolume(20);
+           event.target.setVolume(14);
          }
          
          // 5. The API calls this function when the player's state changes.
@@ -193,6 +215,13 @@
          }
       </script>
       <div id="player"></div>
+      <div class="footer">
+         <button class="playpause" onclick="playVideo()">▶️</button>
+         <button class="playpause" onclick="pauseVideo()">⏸️</button>
+         <div class="playingnow">
+            <p id="song"></p>
+         </div>
+      </div>
       <div class="alert">
          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
          <strong>Info!</strong> <!--If you don't hear music, try and press the ► button--> We are having some trouble with the music, try "No Sound?" button (or Edge Browser for full compatibility).
@@ -212,10 +241,22 @@
          </defs>
       </svg>
       <div class="div2">
-         <button class="button button4" onclick="window.location.href='ncs.html'">24/7 Ncs Stream</button>
-         <button class="button button4" onclick="window.location.href='stream.html'">Dj Stream</button>
-      </div>
-      <div id="bars">
+         <div class = "grid-container">
+            <div class="grid-item">
+               <svg class="button100" id="play-button">
+                  <use xlink:href="#play-button-shape" onclick='playVideo()'>
+               </svg>
+               <svg class="button100" id="pause-button">
+                  <use xlink:href="#pause-button-shape" onclick='pauseVideo()'>
+               </svg>
+            </div>
+            <div class="grid-item">
+               <p style="font-size: 120%;"><b>Currently playing: </b></p>
+               <p id="song"></p>
+            </div>
+         </div>
+         </div>
+         <div id="bars">
          <div class="bar"></div>
          <div class="bar"></div>
          <div class="bar"></div>
@@ -226,6 +267,6 @@
          <div class="bar"></div>
          <div class="bar"></div>
          <div class="bar"></div>
-      </div>
+         </div>
    </body>
 </html>
