@@ -202,30 +202,14 @@
          <button class="button button4" onclick="window.open('https://discord.com/invite/cbwg5Kj','_blank')";>Join The Discord</button>
          <button class="button button4" onclick="unMute()">No Sound?</button>
       </div>
-      <svg class="defs">
-         <defs>
-            <path id="pause-button-shape"  d="M24,0C10.745,0,0,10.745,0,24s10.745,24,24,24s24-10.745,24-24S37.255,0,24,0z M21,33.064c0,2.201-1.688,4-3.75,4
-               s-3.75-1.799-3.75-4V14.934c0-2.199,1.688-4,3.75-4s3.75,1.801,3.75,4V33.064z M34.5,33.064c0,2.201-1.688,4-3.75,4
-               s-3.75-1.799-3.75-4V14.934c0-2.199,1.688-4,3.75-4s3.75,1.801,3.75,4V33.064z"/>
-            <path id="play-button-shape"  d="M24,0C10.745,0,0,10.745,0,24s10.745,24,24,24s24-10.745,24-24S37.255,0,24,0z M31.672,26.828l-9.344,9.344
-               C20.771,37.729,19.5,37.2,19.5,35V13c0-2.2,1.271-2.729,2.828-1.172l9.344,9.344C33.229,22.729,33.229,25.271,31.672,26.828z"/>
-         </defs>
-      </svg>
       <div class="div2">
-         <div class = "grid-container">
-            <div class="grid-item">
-               <svg class="button100" id="play-button">
-                  <use xlink:href="#play-button-shape" onclick='playVideo()'>
-               </svg>
-               <svg class="button100" id="pause-button">
-                  <use xlink:href="#pause-button-shape" onclick='pauseVideo()'>
-               </svg>
-            </div>
-            <div class="grid-item">
-               <p style="font-size: 120%;"><b>Currently playing: </b></p>
-               <p id="song"></p>
-            </div>
-         </div>
+         <script type='text/javascript'>
+            var cstrFreePlayerUid = 527716;var cstrFreePlayerTheme = 'blue';var cstrFreePlayerColor = '';
+         </script>
+         <script type='text/javascript' src='//corscdn.caster.fm/freeplayer/FreePlanPlayerEmbed.js'></script>
+            <!--   DO NOT REMOVE THE LINKS BELOW, THEY  WILL BE HIDDEN (AND WILL HELP US A LOT)   -->
+            <a id='cstrFreePlayerBL1' href='//www.caster.fm/'>Free Shoutcast Hosting</a><a id='cstrFreePlayerBL2' href='//www.caster.fm/'>Radio Stream Hosting</a>
+            <div id='cstrFreePlayerDiv'></div>
       </div>
       <div id="bars">
          <div class="bar"></div>
