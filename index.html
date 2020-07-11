@@ -13,6 +13,26 @@
       <meta name="language" content="English">
    </head>
    <style>
+      .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: #6666ff;
+      color: white;
+      text-align: center;
+      }
+      .playpause{
+      float: left;
+      outline: none;
+      background-color: #6666ff;
+      color: white;
+      border: none;
+      font-size: 200%;
+      }
+      .playingnow{
+      float: right;
+      }
       .alert {
       padding: 20px;
       background-color: #0095DF;
@@ -193,6 +213,13 @@
          }
       </script>
       <div id="player"></div>
+      <div class="footer">
+         <button class="playpause" onclick="playVideo()">⏵︎</button>
+         <button class="playpause" onclick="pauseVideo()">⏸︎</button>
+         <div class="playingnow">
+            <p id="song"></p>
+         </div>
+      </div>
       <div class="alert">
          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
          <strong>Info!</strong> <!--If you don't hear music, try and press the ► button--> We are having some trouble with the music, try "No Sound?" button (or Edge Browser for full compatibility).
@@ -211,7 +238,7 @@
                C20.771,37.729,19.5,37.2,19.5,35V13c0-2.2,1.271-2.729,2.828-1.172l9.344,9.344C33.229,22.729,33.229,25.271,31.672,26.828z"/>
          </defs>
       </svg>
-      <div class="div2">
+      <!--<div class="div2">
          <div class = "grid-container">
             <div class="grid-item">
                <svg class="button100" id="play-button">
@@ -226,8 +253,8 @@
                <p id="song"></p>
             </div>
          </div>
-      </div>
-      <div id="bars">
+         </div>
+         <div id="bars">
          <div class="bar"></div>
          <div class="bar"></div>
          <div class="bar"></div>
@@ -238,6 +265,6 @@
          <div class="bar"></div>
          <div class="bar"></div>
          <div class="bar"></div>
-      </div>
+         </div>-->
    </body>
 </html>
