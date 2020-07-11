@@ -42,7 +42,278 @@
       background-image: url('Background.png');
       background-repeat: no-repeat;
       background-attachment: fixed;
+      background-size: cover;<!DOCTYPE html>
+<html>
+   <head>
+      <link rel="icon" type="image/png" href="site-logo.png"/>
+      <title>Musyc Radio</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel = "stylesheet" type = "text/css" href = "styles.css" />
+      <meta name="title" content="Musyc Radio - Online Live Radio">
+      <meta name="description" content="Musyc Radio is an online music radio - new songs every minute. Gaming music, relaxing music and electronic music.">
+      <meta name="keywords" content="music, radio, live, live radio, live music, songs, song, live songs">
+      <meta name="robots" content="index, follow">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <meta name="language" content="English">
+   </head>
+   <style>
+      .alert {
+      padding: 20px;
+      background-color: #0095DF;
+      color: white;
+      /*position: fixed;*/
+      margin: auto;
+      opacity:0.8;
+      /*bottom: 0;*/
+      top: 12%;
+      text-align: center;
+      border-radius: 12px;
+      }
+      .closebtn {
+      margin-left: 15px;
+      color: white;
+      font-weight: bold;
+      float: right;
+      font-size: 22px;
+      line-height: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+      }
+      .closebtn:hover {
+      color: black;
+      }
+      body {
+      background-image: url('Background.png');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
       background-size: cover;
+      background-position:center; 
+      }
+      @font-face {
+      font-family: 'Roboto';
+      src: url('Roboto-ThinItalic-webfont.eot');
+      src: url('Roboto-ThinItalic-webfont.eot?#iefix') format('embedded-opentype'),
+      url('Roboto-ThinItalic-webfont.woff') format('woff'),
+      url('Roboto-ThinItalic-webfont.ttf') format('truetype'),
+      url('Roboto-ThinItalic-webfont.svg#RobotoThinItalic') format('svg');
+      font-style: italic;
+      }
+      .button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      opacity:0.8;
+      }
+      .button100 {
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+      &:hover {
+      fill: white; 
+      }
+      }
+      .defs {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+      }
+      button:hover {
+      opacity: 0.8;
+      }
+      .center {
+      display: table;
+      margin: 0 auto;
+      text-align: center;
+      }
+      .button1 {border-radius: 2px;}
+      .button2 {border-radius: 4px;}
+      .button3 {border-radius: 8px;}
+      .button4 {border-radius: 12px;}
+      .button5 {border-radius: 50%;}
+      .div1 {position: fixed; left:37%}
+      .div2 {position: fixed; background-color: white; opacity:0.8; left: 33%; top: 75%; min-width: 200px; width: 35%; height: 40%; border-radius: 12px; text-align: center;}
+      .grid-container {display: grid; grid-column-gap: 50px; grid-row-gap: 50px;}
+      .grid-item{grid-row-start: 1; grid-row-end: 1;}
+      #bars {
+      height: 30px;
+      left: 50%;
+      margin: -30px 0 0 -20px;
+      position: absolute;
+      top: 75%;
+      width: 40px;
+      }
+      .bar {
+      background: #666;
+      bottom: 1px;
+      height: 3px;
+      position: absolute;
+      width: 3px;      
+      animation: sound 0ms -800ms linear infinite alternate;
+      }
+      @keyframes sound {
+      0% {
+      opacity: .35;
+      height: 3px; 
+      }
+      100% {
+      opacity: 1;       
+      height: 28px;        
+      }
+      }
+      .bar:nth-child(1)  { left: 1px; animation-duration: 474ms; }
+      .bar:nth-child(2)  { left: 5px; animation-duration: 433ms; }
+      .bar:nth-child(3)  { left: 9px; animation-duration: 407ms; }
+      .bar:nth-child(4)  { left: 13px; animation-duration: 458ms; }
+      .bar:nth-child(5)  { left: 17px; animation-duration: 400ms; }
+      .bar:nth-child(6)  { left: 21px; animation-duration: 427ms; }
+      .bar:nth-child(7)  { left: 25px; animation-duration: 441ms; }
+      .bar:nth-child(8)  { left: 29px; animation-duration: 419ms; }
+      .bar:nth-child(9)  { left: 33px; animation-duration: 487ms; }
+      .bar:nth-child(10) { left: 37px; animation-duration: 442ms; }
+   </style>
+   <body>
+      <script>
+         window.onload = function(){
+           var song = "Gaming Music Live"
+           document.getElementById("song").innerHTML = "<b>" + song + "</b>";
+         };
+         
+         var playpause = "⏹️"
+         
+         // 2. This code loads the IFrame Player API code asynchronously.
+         var tag = document.createElement('script');
+         
+         //tag.src = "https://www.youtube.com/iframe_api";
+         //var firstScriptTag = document.getElementsByTagName('script')[0];
+         //firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+         
+         // 3. This function creates an <iframe> (and YouTube player)
+         //    after the API code downloads.
+         var player;
+         function onYouTubeIframeAPIReady() {
+           player = new YT.Player('player', {
+             height: '0', //This part of code is for testing purposes (we need some audio source)
+             width: '0',
+             videoId: 'Oxj2EAr256Y',
+             events: {
+               'onReady': onPlayerReady,
+               'onStateChange': onPlayerStateChange
+             }
+           });
+         }
+         
+         // 4. The API will call this function when the video player is ready.
+         function onPlayerReady(event) {
+           event.target.playVideo();
+           event.target.setVolume(12);
+         }
+         
+         // 5. The API calls this function when the player's state changes.
+         //    The function indicates that when playing a video (state=1),
+         //    the player should play for six seconds and then stop.
+         var done = false;
+         function onPlayerStateChange(event) {
+           if (event.data == YT.PlayerState.PLAYING && !done) {
+             setTimeout(stopVideo, 6000);
+             done = true;
+           }
+         }
+         function pauseVideo() {
+           player.pauseVideo();
+         }
+         function playVideo() {
+           player.playVideo();
+         }
+         function unMute()
+         {
+         player.unMute()
+         }
+         function Mute()
+         {
+         player.mute()
+         }
+      </script>
+      <div id="player"></div>
+      <!--Leave this please-->
+      <!--<iframe width="0px" height="0px" src="https://www.youtube.com/embed/Oxj2EAr256Y?rel=0&autoplay=1&controls=0&enablejsapi=1&html5=1" frameborder="0" allowfullscreen></iframe>-->
+      <div class="alert">
+         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+         <strong>Info!</strong> <!--If you don't hear music, try and press the ► button--> We are having some trouble with the music, try "No Sound?" button (or Edge Browser for full compatibility).
+      </div>
+      <!--Start of Tawk.to Script-->
+      <!--Leave this please-->
+      <script type="text/javascript">
+         var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+         (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/5f099a605b59f94722ba8786/default';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+         })();
+      </script>
+      <!--End of Tawk.to Script-->
+      <!--Leave this please-->
+      <div class="center">
+         <!--<button class="button button4" onclick="window.location.href='https://musyc.ga/admin'">Admin Login</button>-->
+         <button class="button button4" onclick="window.open('https://discord.com/invite/cbwg5Kj','_blank')";>Join The Discord</button>
+         <button class="button button4" onclick="unMute()">No Sound?</button>
+      </div>
+      <svg class="defs">
+         <defs>
+            <path id="pause-button-shape"  d="M24,0C10.745,0,0,10.745,0,24s10.745,24,24,24s24-10.745,24-24S37.255,0,24,0z M21,33.064c0,2.201-1.688,4-3.75,4
+               s-3.75-1.799-3.75-4V14.934c0-2.199,1.688-4,3.75-4s3.75,1.801,3.75,4V33.064z M34.5,33.064c0,2.201-1.688,4-3.75,4
+               s-3.75-1.799-3.75-4V14.934c0-2.199,1.688-4,3.75-4s3.75,1.801,3.75,4V33.064z"/>
+            <path id="play-button-shape"  d="M24,0C10.745,0,0,10.745,0,24s10.745,24,24,24s24-10.745,24-24S37.255,0,24,0z M31.672,26.828l-9.344,9.344
+               C20.771,37.729,19.5,37.2,19.5,35V13c0-2.2,1.271-2.729,2.828-1.172l9.344,9.344C33.229,22.729,33.229,25.271,31.672,26.828z"/>
+         </defs>
+      </svg>
+      <div class="div2">
+         <!--<div class = "grid-container">
+            <div class="grid-item">
+               <svg class="button100" id="play-button">
+                  <use xlink:href="#play-button-shape" onclick='playVideo()'>
+               </svg>
+               <svg class="button100" id="pause-button">
+                  <use xlink:href="#pause-button-shape" onclick='pauseVideo()'>
+               </svg>
+            </div>
+            <div class="grid-item">
+               <p style="font-size: 120%;"><b>Currently playing: </b></p>
+               <p id="song"></p>
+            </div>
+            <iframe src="https://youtube.com/embed/w9axibp60IU?enablejsapi=1&html5=1"></iframe>
+         </div>-->
+         <script type='text/javascript'>
+            var cstrFreePlayerUid = 527716;var cstrFreePlayerTheme = 'blue';var cstrFreePlayerColor = '';
+         </script>
+         <script type='text/javascript' src='//corscdn.caster.fm/freeplayer/FreePlanPlayerEmbed.js'></script>
+         <!--   DO NOT REMOVE THE LINKS BELOW, THEY  WILL BE HIDDEN (AND WILL HELP US A LOT)   -->
+         <a id='cstrFreePlayerBL1' href='//www.caster.fm/'>Free Shoutcast Hosting</a><a id='cstrFreePlayerBL2' href='//www.caster.fm/'>Radio Stream Hosting</a>
+         <div id='cstrFreePlayerDiv'></div>
+         <!--Leave this please-->
+      </div>
+      <div id="bars">
+         <div class="bar"></div>
+         <div class="bar"></div>
+         <div class="bar"></div>
+         <div class="bar"></div>
+         <div class="bar"></div>
+         <div class="bar"></div>
+         <div class="bar"></div>
+         <div class="bar"></div>
+         <div class="bar"></div>
+         <div class="bar"></div>
+      </div>
+   </body>
+</html>
       background-position:center; 
       }
       @font-face {
