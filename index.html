@@ -144,11 +144,11 @@
          
          // 2. This code loads the IFrame Player API code asynchronously.
          var tag = document.createElement('script');
-
-         //tag.src = "https://www.youtube.com/iframe_api";
-         //var firstScriptTag = document.getElementsByTagName('script')[0];
-         //firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
+         
+         tag.src = "https://www.youtube.com/iframe_api";
+         var firstScriptTag = document.getElementsByTagName('script')[0];
+         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+         
          // 3. This function creates an <iframe> (and YouTube player)
          //    after the API code downloads.
          var player;
@@ -163,13 +163,13 @@
              }
            });
          }
-
+         
          // 4. The API will call this function when the video player is ready.
          function onPlayerReady(event) {
            event.target.playVideo();
            event.target.setVolume(12);
          }
-
+         
          // 5. The API calls this function when the player's state changes.
          //    The function indicates that when playing a video (state=1),
          //    the player should play for six seconds and then stop.
@@ -201,17 +201,6 @@
          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
          <strong>Info!</strong> <!--If you don't hear music, try and press the ► button--> We are having some trouble with the music, try "No Sound?" button (or Edge Browser for full compatibility).
       </div>
-      <script type="text/javascript">
-         var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-         (function(){
-            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-            s1.async=true;
-            s1.src='https://embed.tawk.to/5f099a605b59f94722ba8786/default';
-            s1.charset='UTF-8';
-            s1.setAttribute('crossorigin','*');
-            s0.parentNode.insertBefore(s1,s0);
-         })();
-      </script>
       <div class="center">
          <!--<button class="button button4" onclick="window.location.href='https://musyc.ga/admin'">Admin Login</button>-->
          <button class="button button4" onclick="window.open('https://discord.com/invite/cbwg5Kj','_blank')";>Join The Discord</button>
@@ -227,7 +216,7 @@
          </defs>
       </svg>
       <div class="div2">
-         <!--<div class = "grid-container">
+         <div class = "grid-container">
             <div class="grid-item">
                <svg class="button100" id="play-button">
                   <use xlink:href="#play-button-shape" onclick='playVideo()'>
@@ -240,14 +229,7 @@
                <p style="font-size: 120%;"><b>Currently playing: </b></p>
                <p id="song"></p>
             </div>
-            <iframe src="https://youtube.com/embed/w9axibp60IU?enablejsapi=1&html5=1"></iframe>-->
-            <script type='text/javascript'>
-            var cstrFreePlayerUid = 527716;var cstrFreePlayerTheme = 'color';var cstrFreePlayerColor = '000000';
-            </script>
-            <script type='text/javascript' src='//corscdn.caster.fm/freeplayer/FreePlanPlayerEmbed.js'></script>
-            <!--   DO NOT REMOVE THE LINKS BELOW, THEY  WILL BE HIDDEN (AND WILL HELP US A LOT)   -->
-            <a id='cstrFreePlayerBL1' href='//www.caster.fm/'>Free Shoutcast Hosting</a><a id='cstrFreePlayerBL2' href='//www.caster.fm/'>Radio Stream Hosting</a>
-            <div id='cstrFreePlayerDiv'></div>
+            <iframe src="https://youtube.com/embed/w9axibp60IU?enablejsapi=1&html5=1"></iframe>
          </div>
       </div>
       <div id="bars">
