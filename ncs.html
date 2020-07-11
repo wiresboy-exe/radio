@@ -212,8 +212,20 @@
          </defs>
       </svg>
       <div class="div2">
-         <button class="button button4" onclick="window.location.href='ncs.html'">24/7 Ncs Stream</button>
-         <button class="button button4" onclick="window.location.href='stream.html'">Dj Stream</button>
+         <div class = "grid-container">
+            <div class="grid-item">
+               <svg class="button100" id="play-button">
+                  <use xlink:href="#play-button-shape" onclick='playVideo()'>
+               </svg>
+               <svg class="button100" id="pause-button">
+                  <use xlink:href="#pause-button-shape" onclick='pauseVideo()'>
+               </svg>
+            </div>
+            <div class="grid-item">
+               <p style="font-size: 120%;"><b>Currently playing: </b></p>
+               <p id="song"></p>
+            </div>
+         </div>
       </div>
       <div id="bars">
          <div class="bar"></div>
