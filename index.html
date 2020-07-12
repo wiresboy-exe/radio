@@ -222,10 +222,10 @@
       <div class="footer">
          <button class="playpause" onclick="playVideo()">▶️</button>
          <button class="playpause" onclick="pauseVideo()">⏸️</button>
-         <input class="playpause" type="range" min="0" max="100" value="50" onchange="changeVol(this.value)">
          <div class="playingnow">
             <p id="song"></p>
          </div>
+         <input class="playpause" style="width: 100%;" type="range" min="0" max="100" value="50" onchange="changeVol(this.value)">
       </div>
       <div class="alert">
          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
