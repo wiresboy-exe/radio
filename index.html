@@ -213,11 +213,16 @@
          {
          player.mute()
          }
+         function changeVol(value)
+         {
+         player.setVolume(value)
+         }
       </script>
       <div id="player"></div>
       <div class="footer">
          <button class="playpause" onclick="playVideo()">▶️</button>
          <button class="playpause" onclick="pauseVideo()">⏸️</button>
+         <input class="playpause" type="range" min="0" max="100" value="50" onchange="changeVol(this.value)">
          <div class="playingnow">
             <p id="song"></p>
          </div>
