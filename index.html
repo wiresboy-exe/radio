@@ -5,10 +5,9 @@
     <meta name="keywords" content="radio, online music, online radio, music, internet radio, music radio, dj, fm, listen to music">
     <meta name="language" content="English">
 </head>
+<body onload="detectmob()">
 <script>
-    function detectmob() { if(window.innerWidth <= 800 || window.innerHeight <= 600) { return true; } else { return false; } } if (detectmob()){ top.location.href="m"; }
-                                                                                                                                                
-    detectmob()                                                                                                                                            
+    function detectmob() { if(window.innerWidth <= 800 || window.innerHeight <= 600) { return true; } else { return false; } } if (detectmob()){ top.location.href="m"; }                                                                                                                                        
     
     function imgReload(){
         document.getElementById('song-cover').src = "/assets/Background.png"
@@ -355,6 +354,7 @@
 </tr>
 </table>
 </div>
+</body>
 <script>
     var slideIndex = 1;
     showSlides(slideIndex);
