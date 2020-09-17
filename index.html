@@ -20,35 +20,21 @@
 
     function reload(){
         var song =""
-        let url = 'https://wiresdev.herokuapp.com/musync.api';
+        let url = 'http://wiresdev.herokuapp.com/api.slot.now';
 
         fetch(url)
         .then(res => res.json())
         .then((out) => {
-            if(out.currentDJ.autoDJ === "true"){
-                document.getElementById("dj-name").innerHTML = "DJ: Auto DJ";
-                document.getElementById("dj-pfp").src = "";
-            }else{
-                document.getElementById("dj-name").innerHTML = "DJ: "+out.currentDJ.username;
-                document.getElementById("dj-pfp").src = "";
-            }
-
-            if(song === out.playing.artist+" - "+out.playing.song){
-            }else{
-                imgReload()
-            }
-
-            song = out.playing.artist+" - "+out.playing.song
-            return song;
+            document.getElementById("dj-name").innerHTML = "DJ: "+out.dj;
         })
         .catch(err => { throw err });
     }
 
-    //reload()
+    reload()
 
-    //window.setInterval(function(){
-    //    reload()
-    //}, 10000);
+    window.setInterval(function(){
+        reload()
+    }, 10000);
 </script>
 <style>
     .center{
