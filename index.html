@@ -26,7 +26,7 @@
         .then(res => res.json())
         .then((out) => {
             document.getElementById("song-text").innerHTML = out.now_playing.song.text;
-            document.getElementById("song-art").innerHTML = out.now_playing.song.art;
+            document.getElementById("song-art").src = out.now_playing.song.art;
             
             if(out.live.streamer_name === ""){
                 document.getElementById("dj-name").innerHTML = "DJ: Auto DJ";
