@@ -20,12 +20,18 @@
 
     function reload(){
         var song =""
-        let url = 'https://wiresdev.herokuapp.com/api.slot.now';
+        let url = 'https://ec2-3-8-162-38.eu-west-2.compute.amazonaws.com/api/nowplaying/1';
 
         fetch(url)
         .then(res => res.json())
         .then((out) => {
-            document.getElementById("dj-name").innerHTML = "DJ: "+out.dj;
+            document.getElementById("song-text").innerHTML = out.now_playing.song.text;
+            
+            if(out.live.streamer_name === ""){
+                document.getElementById("dj-name").innerHTML = "DJ: Auto DJ";
+            }else{
+                document.getElementById("dj-name").innerHTML = "DJ: "+out.live.streamer_name;
+            }
         })
         .catch(err => { throw err });
     }
@@ -334,7 +340,7 @@
 </div>
 <div class="bg-text" style="width: 750px; height: 325px;">
     <h2 style="font-size: 50px;">Musyc FM</h2> 
-    <p style="font-size: 30px;"><a style="color: white;" href="https://discord.gg/RxNqvrD">Join the discord!!</a></p>
+    <p id="song-text" style="font-size: 40px;">Loading...</p>
 </div>
 </td>
 </tr>
