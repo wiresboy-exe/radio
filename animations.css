@@ -1,19 +1,5 @@
 @import "compass";
 
-html {
-	height: 100%;
-	width: 100%; 
-	overflow: hidden;
-	scroll: none;
-}
-
-body {
-	background-color: #2F5363;
-	@include filter-gradient(#2F5363, #1B2628, horizontal);
-	@include background-image(radial-gradient(center, ellipse cover, #2F5363 0%,#1B2628 80%));
-	overflow: hidden;
-}
-
 [class*="spider"] {
 	position: absolute;
 	height: 40px;
