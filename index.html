@@ -5,7 +5,6 @@
     <meta name="keywords" content="radio, online music, online radio, music, internet radio, music radio, dj, fm, listen to music">
     <meta name="language" content="English">
 </head>
-<body onload="detectmob()">
 <script>
     function detectmob() { if(window.innerWidth <= 800 || window.innerHeight <= 600) { return true; } else { return false; } } if (detectmob()){ top.location.href="m"; }                                                                                                                                        
     
@@ -20,7 +19,7 @@
 
     function reload(){
         var song =""
-        let url = 'http://api.musyc.ga/';
+        let url = 'https://azura.defectiveness.ml:2053/api/nowplaying/23';
 
         fetch(url)
         .then(res => res.json())
@@ -43,6 +42,7 @@
         reload()
     }, 10000);
 </script>
+<body onload="detectmob()">
 <style>
     .center{
         text-align: center;
