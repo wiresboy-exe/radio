@@ -201,3 +201,14 @@
 </tr>
 </table>
 </div>
+<!-- SPIDER THINGY -->
+<span>
+- 1.times do |i|
+	%div{:class => "spider_#{i}"}
+		.eye.left
+		.eye.right
+		- 4.times do
+			%span.leg.left
+		- 4.times do
+			%span.leg.right
+</span>
