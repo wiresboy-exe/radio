@@ -28,7 +28,7 @@
             .then(res => res.json())
             .then((out1) => {
                 document.getElementById("song-art").src = out1.data[0].album.cover_xl;
-		document.getElementById("icon").src = out1.data[0].album.cover;
+		document.getElementById("icon").href = out1.data[0].album.cover;
             })
             .catch(err => { throw err })
             document.getElementById("song-text").innerHTML = out.now_playing.song.text;
