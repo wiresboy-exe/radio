@@ -1,5 +1,5 @@
 <head>
-    <title>Musyc FM</title>
+    <title id="title">Musyc FM</title>
     <link rel="icon" type="image/png" href="./assets/speaker.png"/>
     <meta name="description" content="Musyc FM is an Internet Radio that plays all types of music, join us and start listening the next generation radio!">
     <meta name="keywords" content="radio, online music, online radio, music, internet radio, music radio, dj, fm, listen to music">
@@ -31,6 +31,7 @@
             })
             .catch(err => { throw err })
             document.getElementById("song-text").innerHTML = out.now_playing.song.text;
+	    document.getElementById("title").innerHTML = out.now_playing.song.text+" - Musyc FM";
 	    document.getElementById("listeners").innerHTML = out.listeners.current + " people listening with you";
             
             if(out.live.streamer_name === ""){
