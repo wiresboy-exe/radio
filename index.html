@@ -24,7 +24,7 @@
         fetch(url)
         .then(res => res.json())
         .then((out) => {
-            fetch('http://defectivecors.herokuapp.com/https://api.deezer.com/search?q='+out.now_playing.song.text)
+            fetch('https://defectivecors.herokuapp.com/https://api.deezer.com/search?q='+out.now_playing.song.text)
             .then(res => res.json())
             .then((out1) => {
                 document.getElementById("song-art").src = out1.data[0].artist.picture;
