@@ -4,7 +4,6 @@
     <meta name="description" content="Musyc FM is an Internet Radio that plays all types of music, join us and start listening the next generation radio!">
     <meta name="keywords" content="radio, online music, online radio, music, internet radio, music radio, dj, fm, listen to music">
     <meta name="language" content="English">
-    <link rel="stylesheet" href="animations.css">
 </head>
 <script>
     function detectmob() { if(window.innerWidth <= 800 || window.innerHeight <= 600) { return true; } else { return false; } } if (detectmob()){ top.location.href="m"; }                                                                                                                                        
@@ -20,13 +19,18 @@
 
     function reload(){
         var song =""
-        let url = 'http://91.194.91.65:2053/api/nowplaying/23';
+        let url = 'https://api.musyc.ga';
 
         fetch(url)
         .then(res => res.json())
         .then((out) => {
+            fetch('https://api.deezer.com/search?q='+out.now_playing.song.text)
+            .then(res => res.json())
+            .then((out1) => {
+                document.getElementById("song-art").src = out.data[0].artist.picture;
+            })
+            .catch(err => { throw err })
             document.getElementById("song-text").innerHTML = out.now_playing.song.text;
-            document.getElementById("song-art").src = out.now_playing.song.art;
             
             if(out.live.streamer_name === ""){
                 document.getElementById("dj-name").innerHTML = "DJ: Auto DJ";
@@ -383,16 +387,3 @@
         plusSlides(1)
     }, 5000);
 </script>
-
-<div class="spider">
-  <div class="eye left"></div>
-  <div class="eye right"></div>
-  <span class="leg left"></span>
-  <span class="leg left"></span>
-  <span class="leg left"></span>
-  <span class="leg left"></span>
-  <span class="leg right"></span>
-  <span class="leg right"></span>
-  <span class="leg right"></span>
-  <span class="leg right"></span>
-</div>
