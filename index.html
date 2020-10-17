@@ -27,7 +27,7 @@
             fetch('https://defectivecors.herokuapp.com/https://api.deezer.com/search?q='+out.now_playing.song.text)
             .then(res => res.json())
             .then((out1) => {
-                document.getElementById("song-art").src = out1.data[0].artist.picture;
+                document.getElementById("song-art").src = out1.data[0].artist.picture_big;
             })
             .catch(err => { throw err })
             document.getElementById("song-text").innerHTML = out.now_playing.song.text;
@@ -71,7 +71,7 @@
     }
 
     .bg-image {
-        background-image: linear-gradient(to top right, #E489A0, #E2E6D8, #86D5CD, #2863A2);
+        background-image: linear-gradient(to top right, #047502, #f78c00, #000000);
         height: 100%;
         background-position: center;
         background-repeat: no-repeat;
@@ -237,7 +237,6 @@
     @import "compass";
 
 [class*="spider"] {
-	z-index: 100;
 	position: absolute;
 	height: 40px;
 	width: 50px;
@@ -484,20 +483,6 @@
 </style>
 <div class="bg-image center" id="bg-image"></div>
 <div class="bg-div">
-	
-<% 1.times do |i| %>
-  <div class="spider_<%= i %>">
-    <div class="eye left"></div>
-    <div class="eye right"></div>
-    <% 4.times do %>
-      <span class="leg left"></span>
-    <% end %>
-    <% 4.times do %>
-      <span class="leg right"></span>
-    <% end %>
-  </div>
-<% end %>
-	
 <table class="center">
 <tr>
 <td>
@@ -648,3 +633,15 @@
         plusSlides(1)
     }, 5000);
 </script>
+<div class="spider">
+  <div class="eye left"></div>
+  <div class="eye right"></div>
+  <span class="leg left"></span>
+  <span class="leg left"></span>
+  <span class="leg left"></span>
+  <span class="leg left"></span>
+  <span class="leg right"></span>
+  <span class="leg right"></span>
+  <span class="leg right"></span>
+  <span class="leg right"></span>
+</div>
