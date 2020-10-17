@@ -254,7 +254,7 @@ html:hover .spider {
     left: 100;
 
     /* 4. Animatie */
-    animation: swing 10s infinite;
+    animation: swing 2s infinite;
     transform-origin: top;
 
     /* Bonus */
@@ -372,24 +372,14 @@ html:hover .spider {
 
 /* 3. Animatie */
 @keyframes swing {
-    0% {
-        transform: translateY(0);
-    }
-    25% {
-        transform: translateY(-15px);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
-    75% {
-        transform: translateY(-10px);
-    }
-    100% {
+    0%, 100% {
         transform: translateY(0);
     }
 
+    50% {
+        transform: translateY(-20px);
+    }
 }
-	
 </style>
 <div class="bg-image center" id="bg-image"></div>
     <div class="spider">
