@@ -1,6 +1,6 @@
 <head>
     <title id="title">Musyc FM</title>
-    <link rel="icon" type="image/png" href="./assets/speaker.png"/>
+    <link id="icon" rel="icon" type="image/png" href="./assets/speaker.png"/>
     <meta name="description" content="Musyc FM is an Internet Radio that plays all types of music, join us and start listening the next generation radio!">
     <meta name="keywords" content="radio, online music, online radio, music, internet radio, music radio, dj, fm, listen to music">
     <meta name="language" content="English">
@@ -28,6 +28,7 @@
             .then(res => res.json())
             .then((out1) => {
                 document.getElementById("song-art").src = out1.data[0].album.cover_xl;
+		document.getElementById("icon").src = out1.data[0].album.cover;
             })
             .catch(err => { throw err })
             document.getElementById("song-text").innerHTML = out.now_playing.song.text;
