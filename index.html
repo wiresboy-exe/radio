@@ -31,6 +31,7 @@
             })
             .catch(err => { throw err })
             document.getElementById("song-text").innerHTML = out.now_playing.song.text;
+	    document.getElementById("listeners").innerHTML = out.listeners.current;
             
             if(out.live.streamer_name === ""){
                 document.getElementById("dj-name").innerHTML = "DJ: Auto DJ";
