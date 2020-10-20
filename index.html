@@ -1,0 +1,579 @@
+<html>
+    <head>
+        <title id="title">Musyc FM</title>
+        <link id="icon" rel="icon" type="image/png" href="./assets/speaker.png"/>
+        <meta name="description" content="Musyc FM is an Internet Radio that plays all types of music, join us and start listening the next generation radio!">
+        <meta name="keywords" content="radio, online music, online radio, music, internet radio, music radio, dj, fm, listen to music">
+        <meta name="language" content="English">
+    </head>
+    <script>
+        function detectmob() { if(window.innerWidth <= 800 || window.innerHeight <= 600) { return true; } else { return false; } } if (detectmob()){ top.location.href="m"; }                                                                                                                                        
+        
+        function imgReload(){
+            document.getElementById('song-cover').src = "/assets/Background.png"
+            imgReload1()
+        }
+
+        function imgReload1(){
+            document.getElementById('song-cover').src = ""
+        }
+
+        function reload(){
+            var song =""
+            let url = 'https://api.musyc.ga';
+
+            fetch(url)
+            .then(res => res.json())
+            .then((out) => {
+                fetch('https://defectivecors.herokuapp.com/https://api.deezer.com/search?q='+out.now_playing.song.text)
+                    .then(res => res.json())
+                    .then((out1) => {
+                        document.getElementById("song-art").src = out1.data[0].album.cover_xl;
+                        document.getElementById("icon").href = out1.data[0].album.cover;
+                    })
+                    .catch(err => { throw err })
+
+                fetch('https://defectivecors.herokuapp.com/https://api.deezer.com/search?q='+out.playing_next.song.text)
+                    .then(res => res.json())
+                    .then((out1) => {
+                        document.getElementById("song-art-next").src = out1.data[0].album.cover_xl;
+                    })
+                    .catch(err => { throw err })
+
+                fetch('https://defectivecors.herokuapp.com/https://api.deezer.com/search?q='+out.song_history[0].song.text)
+                    .then(res => res.json())
+                    .then((out1) => {
+                        document.getElementById("song-art-prev").src = out1.data[0].album.cover_xl;
+                    })
+                    .catch(err => { throw err })
+
+                document.getElementById("song-text").innerHTML = out.now_playing.song.text;
+                document.getElementById("song-text-prev").innerHTML = out.song_history[0].song.text;
+                document.getElementById("song-text-next").innerHTML = out.playing_next.song.text;
+                document.getElementById("title").innerHTML = "Musyc FM - "+out.now_playing.song.text;
+                document.getElementById("listeners").innerHTML = out.listeners.current + " people listening with you";
+                
+                if(out.live.streamer_name === ""){
+                    document.getElementById("dj-name").innerHTML = "DJ: Auto DJ";
+                }else{
+                    document.getElementById("dj-name").innerHTML = "DJ: "+out.live.streamer_name;
+                }
+            })
+            .catch(err => { throw err });
+        }
+
+        reload()
+
+        window.setInterval(function(){
+            reload()
+        }, 10000);
+    </script>
+    <body onload="detectmob()">
+        <audio autoplay="1" src="https://live.musyc.ga/" id="audio"></audio>
+        <script>
+            var radio = document.getElementById("audio")
+            var btn = document.getElementById("btn")
+            var e = 0
+
+            function playradio(){
+                radio.play()
+            }
+                                        
+            function stopradio(){
+                radio.pause()
+            }
+
+            function setvolume(vol){
+                radio.volume = vol;
+                document.getElementById("btn").src = './assets/pause.png'
+            }
+
+            function playpause(){
+                if(e === 1){
+                    e = 0
+                    playradio()
+                    document.getElementById("btn").src = './assets/pause.png'
+                } else{
+                    e = 1
+                    stopradio()
+                    document.getElementById("btn").src = './assets/play.png'
+                }
+                return e;
+            }
+        </script>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+            
+            .center{
+                text-align: center;
+                margin: auto;
+            }
+
+            .centerimg {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 200px;
+                border-radius: 50%;
+            }
+
+            .main_img{
+                animation: spin 20s infinite linear;
+            }
+
+            .center_img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+            }
+
+            body, html {
+                height: 100%;
+            background-color: #000000;
+            }
+
+            * {
+                box-sizing: border-box;
+            }
+
+            .bg-image {
+                background-image: url('./assets/bd.png');
+                height: 100%;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                filter: blur(16px);
+                -webkit-filter: blur(16px);
+            }
+
+            .bg-text {
+                color: white;
+                font-weight: bold;
+                text-align: center;
+                border-radius: 12px;
+            }
+
+            .bg-div{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 2;
+                padding: 20px;
+            }
+
+            .image_bit{
+                background-color: rgba(0,0,0,0.50);
+                border-radius: 12px;
+            }
+
+            html, body {margin: 0; height: 100%; overflow: hidden}
+
+            table{
+                padding: 10px;
+            }
+
+            @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+            td{
+                color: white;
+                font-family: 'Creepster', cursive;
+                text-align: center;
+                margin: auto;
+                width: 33.3%
+            }
+
+            p{
+                color: white;
+                font-family: 'Creepster', cursive;
+            }
+
+            h2{
+                color: white;
+                font-family: 'Creepster', cursive;
+            }
+
+            .like{
+                width: 50px;
+                transition: 0.1s;
+            }
+
+            .like:hover{
+                width: 75px;
+            }
+
+            .slider{
+                width: 75%
+            }
+
+            * {box-sizing:border-box}
+
+            /* Slideshow container */
+            .slideshow-container {
+                max-width: 1000px;
+                position: relative;
+                margin: auto;
+            }
+
+            /* Hide the images by default */
+            .mySlides {
+                display: none;
+            }
+
+            /* Next & previous buttons */
+            .prev, .next {
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                width: auto;
+                margin-top: -22px;
+                padding: 16px;
+                color: white;
+                font-weight: bold;
+                font-size: 18px;
+                transition: 0.6s ease;
+                border-radius: 0 3px 3px 0;
+                user-select: none;
+            }
+
+            /* Position the "next button" to the right */
+            .next {
+                right: 0;
+                border-radius: 3px 0 0 3px;
+            }
+
+            /* On hover, add a black background color with a little bit see-through */
+            .prev:hover, .next:hover {
+                background-color: rgba(0,0,0,0.8);
+            }
+
+            /* Caption text */
+            .text {
+                color: #f2f2f2;
+                font-size: 15px;
+                padding: 8px 12px;
+                position: absolute;
+                bottom: 8px;
+                width: 100%;
+                text-align: center;
+            }
+
+            /* Number text (1/3 etc) */
+            .numbertext {
+                color: #f2f2f2;
+                font-size: 12px;
+                padding: 8px 12px;
+                position: absolute;
+                top: 0;
+            }
+
+            /* The dots/bullets/indicators */
+            .dot {
+                cursor: pointer;
+                height: 15px;
+                width: 15px;
+                margin: 0 2px;
+                background-color: #bbb;
+                border-radius: 50%;
+                display: inline-block;
+                transition: background-color 0.6s ease;
+            }
+
+            .active, .dot:hover {
+                background-color: #717171;
+            }
+
+            /* Fading animation */
+            .fade {
+                opacity: 1;
+                -webkit-animation-name: fade;
+                -webkit-animation-duration: 1.5s;
+                animation-name: fade;
+                animation-duration: 1.5s;
+            }
+
+            .fade:hover{
+                opacity: 0.7;
+            }
+
+            @-webkit-keyframes fade {
+                from {opacity: .4}
+                to {opacity: 1}
+            }
+
+            @keyframes fade {
+                from {opacity: .4}
+                to {opacity: 1}
+            }
+            @import "compass";
+            
+            /* Bonus */
+            html:hover .spider {
+                top: -120%;
+            }
+
+            .spider {
+                position: absolute;
+                display: inline-block;
+                top: -125;
+                left: 100;
+
+                /* 4. Animatie */
+                animation: swing 2s infinite;
+                transform-origin: top;
+
+                /* Bonus */
+                transition: 1s ease-in-out;
+            }
+
+            .spider .spiderweb {
+                width: 2px;
+                height: 200px;
+                margin-left: 49px;
+                background: rgba(255,255,255, .7);
+            }
+
+            .spider .body {
+                width: 100px;
+                height: 80px;
+                background: #000;
+                position: relative;
+                border-radius: 50%;
+            }
+
+            .spider .body .eye {
+                width: 33px;
+                height: 33px;
+                position: absolute;
+                bottom: 20px;
+                background: #fff;
+                border-radius: 50%;
+            }
+
+            .spider .body .eye.left {
+                left: 15px;
+            }
+
+            .spider .body .eye.right {
+                right: 15px;
+            }
+
+            .spider .body .eye:after {
+                background: #000;
+                width: 7px;
+                height: 7px;
+                content: '';
+                display: block;
+                margin: 55%;
+                border-radius: 50%;
+
+                /* 3. Animatie */
+                animation: look 8s infinite;
+            }
+
+            .spider .legs .leg {
+                width: 80px;
+                height: 40px;
+                margin-top: -20px;
+                border: 5px solid transparent;
+                border-top-color: #000;
+                border-radius: 40px 40px 0 0;
+            }
+
+            .spider .legs {
+                position: absolute;
+                bottom: -10%;
+                z-index: -1;
+            }
+
+            .spider .legs.left {
+                left: -70%;
+            }
+            .spider .legs.right {
+                right: -60%;
+            }
+
+
+            .legs.left .leg:nth-child(1){
+                transform: rotate(10deg);
+                margin-left: 10px;
+            }
+            .legs.right .leg:nth-child(1){
+                transform: rotate(-10deg);
+                margin-left: -10px;
+            }
+
+
+            .legs.left .leg:nth-child(2){
+                transform: rotate(-20deg);
+                margin-left: 20px;
+            }
+            .legs.right .leg:nth-child(2){
+                transform: rotate(20deg);
+                margin-left: -20px;
+            }
+
+
+            .legs.left .leg:nth-child(3){
+                transform: rotate(-50deg);
+                margin-left: 30px;
+            }
+            .legs.right .leg:nth-child(3){
+                transform: rotate(50deg);
+                margin-left: -30px;
+            }
+
+            /* 1. Animatie */
+            @keyframes look {
+                0%, 40%, 100% {
+                    transform: translateX(0); 
+                }
+
+                45%, 95% {
+                    transform: translateX(-110%);
+                }
+            }
+
+
+            /* 3. Animatie */
+            @keyframes swing {
+                0%, 100% {
+                    transform: translateY(0);
+                }
+
+                50% {
+                    transform: translateY(-20px);
+                }
+            }
+
+            .slidecontainer {
+                width: 100%;
+            }
+
+            .slider {
+                -webkit-appearance: none;
+                width: 200px;
+                height: 15px;
+                border-radius: 7.5px;
+                background: #000000;
+                outline: none;
+                opacity: 0.7;
+                -webkit-transition: .2s;
+                transition: opacity .2s;
+            }
+
+            .slider:hover {
+                opacity: 1;
+            }
+
+            .slider::-webkit-slider-thumb {
+                -webkit-appearance: none;
+                appearance: none;
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                background: #fc9300;
+                cursor: pointer;
+            }
+
+            .slider::-moz-range-thumb {
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                background: #fc9300;
+                cursor: pointer;
+            }
+
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+            .img_center_container{
+                position: absolute;
+                z-index: 9;
+                top: 45%;
+                left: 49%;
+            }
+
+            .img_center{
+                animation: spin 11s infinite linear;
+                position: absolute;
+                height: 20px;
+                width: 20px;
+                border-color: #bbb;
+                border-style: inset;
+                background-color: #000;
+                border-radius: 50%;
+                display: inline-block;
+                z-index: 10;
+            }
+        </style>
+        <div class="bg-image center" id="bg-image"></div>
+            <div class="spider">
+                <div class="spiderweb"></div>
+                <div class="body">
+                    <div class="eye left"></div>
+                    <div class="eye right"></div>
+                </div>
+                <div class="legs left">
+                    <div class="leg"></div>
+                    <div class="leg"></div>
+                    <div class="leg"></div>
+                </div>
+                <div class="legs right">
+                    <div class="leg"></div>
+                    <div class="leg"></div>
+                    <div class="leg"></div>
+                </div>
+            </div>
+        <div class="bg-div">	
+            <p id="dj-name" class="center" style="font-size: 40px;">DJ: Auto DJ</p>
+            <div style="padding: 10px;"></div>
+            <table width="100%" class="image_bit">
+                <tr>
+                    <tr>
+                        <td>
+                            <div style="padding: 60px;"></div>
+                            <img class="centerimg" style="width: 150px;" src="./assets/speaker.png" id="song-art-prev">
+                            <p id="song-text-prev" style="font-size: 20px;">Loading...</p>
+                            <div style="padding: 50px;"></div>
+                        </td>
+                        <td>
+                            <div style="padding: 40px;"></div>
+                            <img class="centerimg" src="./assets/prev.png" id="song-art-prev">
+                            <div style="padding: 75px;"></div>
+                        </td>
+                        <td>
+                            <div class="slidecontainer">
+                                <input type="range" min="0" onchange="setvolume(this.value); playradio()" step="0.001" max="1" value="50" class="slider" id="myRange">
+                            </div>
+                            <div style="padding: 25px;"></div>
+                            <div class="img_center_container"><div class="img_center"></div></div>
+                            <img class="centerimg main_img" src="./assets/speaker.png" id="song-art">
+                            <p id="song-text" style="font-size: 20px;">Loading...</p>
+                            <img width="100px" src="./assets/play.png" id="btn" onclick="playpause()">
+                        </td>
+                        <td>
+                            <div style="padding: 40px;"></div>
+                            <img class="centerimg" src="./assets/next.png" id="song-art-prev">
+                            <div style="padding: 75px;"></div>
+                        </td>
+                        <td>
+                            <div style="padding: 50px;"></div>
+                            <img class="centerimg" style="width: 150px;" src="./assets/speaker.png" id="song-art-next">
+                            <p id="song-text-next" style="font-size: 20px;">Loading...</p>
+                            <div style="padding: 50px;"></div>
+                        </td>
+                    </tr>
+                </tr>
+            </table>
+            <p id="listeners" class="center" style="font-size: 20px;">Loading...</p>
+        </div>
+    </body>
+</html>
