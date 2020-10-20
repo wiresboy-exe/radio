@@ -493,6 +493,14 @@
                     transform: rotate(360deg);
                 }
             }
+            
+            .overflow{
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+            }
         </style>
         <div class="bg-image center" id="bg-image"></div>
             <div class="spider">
@@ -521,7 +529,7 @@
                         <td>
                             <div style="padding: 60px;"></div>
                             <img class="centerimg" style="width: 150px;" src="./assets/speaker.png" id="song-art-prev">
-                            <p id="song-text-prev" style="font-size: 20px;">Loading...</p>
+                            <p class="overflow" id="song-text-prev" style="font-size: 20px;">Loading...</p>
                             <div style="padding: 50px;"></div>
                         </td>
                         <td>
@@ -535,7 +543,7 @@
                             </div>
                             <div style="padding: 25px;"></div>
                             <img class="centerimg main_img" src="./assets/speaker.png" id="song-art">
-                            <p id="song-text" style="font-size: 20px;">Loading...</p>
+                            <p class="overflow" id="song-text" style="font-size: 20px;">Loading...</p>
                             <img width="100px" src="./assets/play.png" id="btn" onclick="playpause()">
                         </td>
                         <td>
@@ -546,13 +554,12 @@
                         <td>
                             <div style="padding: 50px;"></div>
                             <img class="centerimg" style="width: 150px;" src="./assets/speaker.png" id="song-art-next">
-                            <p id="song-text-next" style="font-size: 20px;">Loading...</p>
+                            <p class="overflow" id="song-text-next" style="font-size: 20px;">Loading...</p>
                             <div style="padding: 50px;"></div>
                         </td>
                     </tr>
                 </tr>
             </table>
-            <br>
             <p id="listeners" class="center" style="font-size: 20px;">Loading...</p>
         </div>
     </body>
