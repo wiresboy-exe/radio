@@ -25,7 +25,7 @@
             fetch(url)
             .then(res => res.json())
             .then((out) => {
-                fetch('https://api.deezer.com/search?q='+out.now_playing.song.text)
+                fetch('https://cors.bencaulfield.me/https://api.deezer.com/search?q='+out.now_playing.song.text)
                     .then(res => res.json())
                     .then((out1) => {
                         document.getElementById("song-art").src = out1.data[0].album.cover_xl;
@@ -33,14 +33,14 @@
                     })
                     .catch(err => { throw err })
 
-                fetch('https://api.deezer.com/search?q='+out.playing_next.song.text)
+                fetch('https://cors.bencaulfield.me/https://api.deezer.com/search?q='+out.playing_next.song.text)
                     .then(res => res.json())
                     .then((out1) => {
                         document.getElementById("song-art-next").src = out1.data[0].album.cover_xl;
                     })
                     .catch(err => { throw err })
 
-                fetch('https://api.deezer.com/search?q='+out.song_history[0].song.text)
+                fetch('https://cors.bencaulfield.me/https://api.deezer.com/search?q='+out.song_history[0].song.text)
                     .then(res => res.json())
                     .then((out1) => {
                         document.getElementById("song-art-prev").src = out1.data[0].album.cover_xl;
@@ -138,7 +138,7 @@
             }
 
             .bg-image {
-                background-image: url('./assets/bd.png');
+                background-image: url('https://media.discordapp.net/attachments/658702019938353153/768011887676882965/iu.png?width=727&height=409');
                 height: 100%;
                 background-position: center;
                 background-repeat: no-repeat;
@@ -493,17 +493,29 @@
                     transform: rotate(360deg);
                 }
             }
-            
-            .overflow{
-                overflow: hidden;
-                text-overflow: ellipsis;
-                display: -webkit-box;
-                -webkit-line-clamp: 1;
-                -webkit-box-orient: vertical;
+
+            .img_center_container{
+                position: absolute;
+                z-index: 9;
+                top: 45%;
+                left: 49%;
+            }
+
+            .img_center{
+                animation: spin 11s infinite linear;
+                position: absolute;
+                height: 20px;
+                width: 20px;
+                border-color: #bbb;
+                border-style: inset;
+                background-color: #000;
+                border-radius: 50%;
+                display: inline-block;
+                z-index: 10;
             }
         </style>
         <div class="bg-image center" id="bg-image"></div>
-            <div class="spider">
+            <!--<div class="spider">
                 <div class="spiderweb"></div>
                 <div class="body">
                     <div class="eye left"></div>
@@ -519,7 +531,7 @@
                     <div class="leg"></div>
                     <div class="leg"></div>
                 </div>
-            </div>
+            </div>-->
         <div class="bg-div">	
             <p id="dj-name" class="center" style="font-size: 40px;">DJ: Auto DJ</p>
             <div style="padding: 10px;"></div>
@@ -529,7 +541,7 @@
                         <td>
                             <div style="padding: 60px;"></div>
                             <img class="centerimg" style="width: 150px;" src="./assets/speaker.png" id="song-art-prev">
-                            <p class="overflow" id="song-text-prev" style="font-size: 20px;">Loading...</p>
+                            <p id="song-text-prev" style="font-size: 20px;">Loading...</p>
                             <div style="padding: 50px;"></div>
                         </td>
                         <td>
@@ -542,8 +554,9 @@
                                 <input type="range" min="0" onchange="setvolume(this.value); playradio()" step="0.001" max="1" value="50" class="slider" id="myRange">
                             </div>
                             <div style="padding: 25px;"></div>
+                            <div class="img_center_container"><div class="img_center"></div></div>
                             <img class="centerimg main_img" src="./assets/speaker.png" id="song-art">
-                            <p class="overflow" id="song-text" style="font-size: 20px;">Loading...</p>
+                            <p id="song-text" style="font-size: 20px;">Loading...</p>
                             <img width="100px" src="./assets/play.png" id="btn" onclick="playpause()">
                         </td>
                         <td>
@@ -554,13 +567,12 @@
                         <td>
                             <div style="padding: 50px;"></div>
                             <img class="centerimg" style="width: 150px;" src="./assets/speaker.png" id="song-art-next">
-                            <p class="overflow" id="song-text-next" style="font-size: 20px;">Loading...</p>
+                            <p id="song-text-next" style="font-size: 20px;">Loading...</p>
                             <div style="padding: 50px;"></div>
                         </td>
                     </tr>
                 </tr>
             </table>
-            <br>
             <p id="listeners" class="center" style="font-size: 20px;">Loading...</p>
         </div>
     </body>
