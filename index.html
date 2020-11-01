@@ -25,7 +25,7 @@
             fetch(url)
             .then(res => res.json())
             .then((out) => {
-                fetch('https://defectivecors.herokuapp.com/https://api.deezer.com/search?q='+out.now_playing.song.text)
+                fetch('https://cors.bencaulfield.me/https://api.deezer.com/search?q='+out.now_playing.song.text)
                     .then(res => res.json())
                     .then((out1) => {
                         document.getElementById("song-art").src = out1.data[0].album.cover_xl;
@@ -33,14 +33,14 @@
                     })
                     .catch(err => { throw err })
 
-                fetch('https://defectivecors.herokuapp.com/https://api.deezer.com/search?q='+out.playing_next.song.text)
+                fetch('https://cors.bencaulfield.me/https://api.deezer.com/search?q='+out.playing_next.song.text)
                     .then(res => res.json())
                     .then((out1) => {
                         document.getElementById("song-art-next").src = out1.data[0].album.cover_xl;
                     })
                     .catch(err => { throw err })
 
-                fetch('https://defectivecors.herokuapp.com/https://api.deezer.com/search?q='+out.song_history[0].song.text)
+                fetch('https://cors.bencaulfield.me/https://api.deezer.com/search?q='+out.song_history[0].song.text)
                     .then(res => res.json())
                     .then((out1) => {
                         document.getElementById("song-art-prev").src = out1.data[0].album.cover_xl;
@@ -138,7 +138,7 @@
             }
 
             .bg-image {
-                background-image: url('./assets/bd.png');
+                background-image: url('https://media.discordapp.net/attachments/658702019938353153/768011887676882965/iu.png?width=727&height=409');
                 height: 100%;
                 background-position: center;
                 background-repeat: no-repeat;
@@ -515,7 +515,7 @@
             }
         </style>
         <div class="bg-image center" id="bg-image"></div>
-            <div class="spider">
+            <!--<div class="spider">
                 <div class="spiderweb"></div>
                 <div class="body">
                     <div class="eye left"></div>
@@ -531,7 +531,7 @@
                     <div class="leg"></div>
                     <div class="leg"></div>
                 </div>
-            </div>
+            </div>-->
         <div class="bg-div">	
             <p id="dj-name" class="center" style="font-size: 40px;">DJ: Auto DJ</p>
             <div style="padding: 10px;"></div>
