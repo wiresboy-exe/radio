@@ -18,8 +18,7 @@
         <meta name="keywords" content="radio, online music, online radio, music, internet radio, music radio, dj, fm, listen to music">
         <title id="title">Musyc FM</title>
     </head>
-    <script>
-        function detectmob() { if(window.innerWidth <= 800 || window.innerHeight <= 600) { return true; } else { return false; } } if (detectmob()){ top.location.href="m"; }                                                                                                                                        
+    <script>                                                                                                                                      
         
         function imgReload(){
             document.getElementById('song-cover').src = "/assets/Background.png"
@@ -64,7 +63,7 @@
             reload()
         }, 10000);
     </script>
-    <body onload="detectmob()">
+    <body>
         <audio autoplay="1" src="https://live.musyc.ga/" id="audio"></audio>
         <script>
             var radio = document.getElementById("audio")
