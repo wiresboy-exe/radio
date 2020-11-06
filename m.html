@@ -45,23 +45,7 @@
                     })
                     .catch(err => { throw err })
 
-                fetch('https://cors.bencaulfield.me/https://api.deezer.com/search?q='+out.playing_next.song.text)
-                    .then(res => res.json())
-                    .then((out1) => {
-                        document.getElementById("song-art-next").src = out1.data[0].album.cover_xl;
-                    })
-                    .catch(err => { throw err })
-
-                fetch('https://cors.bencaulfield.me/https://api.deezer.com/search?q='+out.song_history[0].song.text)
-                    .then(res => res.json())
-                    .then((out1) => {
-                        document.getElementById("song-art-prev").src = out1.data[0].album.cover_xl;
-                    })
-                    .catch(err => { throw err })
-
                 document.getElementById("song-text").innerHTML = out.now_playing.song.text;
-                document.getElementById("song-text-prev").innerHTML = out.song_history[0].song.text;
-                document.getElementById("song-text-next").innerHTML = out.playing_next.song.text;
                 document.getElementById("title").innerHTML = "Musyc FM - "+out.now_playing.song.text;
                 document.getElementById("listeners").innerHTML = out.listeners.current + " people listening with you";
                 
