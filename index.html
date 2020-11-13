@@ -72,6 +72,13 @@
                 }
             })
             .catch(err => { throw err });
+            
+            fetch('https://api.radiotakeover.net/stats')
+                    .then(res => res.json())
+                    .then((res) => {
+                        document.getElementById("radiotakeover").src = 'Radiotakeover donations: '+res.donations.percentage+'%, £'+res.donations.total;
+                    })
+                    .catch(err => { throw err })
         }
 
         reload()
@@ -586,6 +593,7 @@
                 </tr>
             </table>
             <p id="listeners" class="center" style="font-size: 20px;">Loading...</p>
+            <p id="radiotakeover" class="center" style="font-size: 20px;">Loading...</p>
         </div>
     </body>
 </html>
