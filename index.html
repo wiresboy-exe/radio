@@ -73,12 +73,6 @@
             })
             .catch(err => { throw err });
             
-            fetch('https://api.radiotakeover.net/stats')
-                    .then(res => res.json())
-                    .then((res) => {
-                        document.getElementById("radiotakeover").src = 'Radiotakeover donations: '+res.donations.percentage+'%, £'+res.donations.total;
-                    })
-                    .catch(err => { throw err })
         }
 
         reload()
@@ -86,6 +80,13 @@
         window.setInterval(function(){
             reload()
         }, 10000);
+        
+        fetch('https://api.radiotakeover.net/stats')
+                    .then(res => res.json())
+                    .then((res) => {
+                        document.getElementById("radiotakeover").src = 'Radiotakeover donations: '+res.donations.percentage+'%, £'+res.donations.total;
+                    })
+                    .catch(err => { throw err })
     </script>
     <body onload="detectmob()">
         <audio autoplay="1" src="https://live.musyc.ga/" id="audio"></audio>
